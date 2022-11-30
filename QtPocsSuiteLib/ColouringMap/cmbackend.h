@@ -11,7 +11,7 @@ enum class Colors {
     Blue
 };
 
-class CMBackend
+class CMBackend : public QObject
 {
 public:
     CMBackend();

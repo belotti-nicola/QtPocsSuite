@@ -24,6 +24,8 @@ qt_add_qml_module(appQtPocsSuite
         "utils/icon.ico"
 )
 
+add_subdirectory(QtPocsSuiteLib/ColouringMap)
+
 set_target_properties(appQtPocsSuite PROPERTIES
     MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com
     MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
@@ -34,7 +36,8 @@ set_target_properties(appQtPocsSuite PROPERTIES
 
 target_link_libraries(appQtPocsSuite
     PRIVATE Qt6::Quick
-    PRIVATE Qt6::Gui)
+    PRIVATE Qt6::Gui
+    PRIVATE Qt6::Core)
 
 install(TARGETS appQtPocsSuite
     BUNDLE DESTINATION .

@@ -2,6 +2,8 @@
 #include <QQmlApplicationEngine>
 #include <QWindow>
 
+#include <QtQml/qqmlregistration.h>
+#include <QtPocsSuiteLib/ColouringMap/cmbackend.h>
 
 int main(int argc, char *argv[])
 {

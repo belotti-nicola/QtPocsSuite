@@ -45,7 +45,7 @@ Item {
                 textRole: "text"
                 valueRole: "source"
                 model: [
-                    {text: "worldmap", source: "qrc:/QtPocsSuite/utils/worldmap.png"},
+                    {text: "worldmap" , source: "qrc:/QtPocsSuite/utils/worldmap.png"},
                     {text: "europemap", source: "qrc:/QtPocsSuite/utils/europemap.jpg"}
                 ]
             }
