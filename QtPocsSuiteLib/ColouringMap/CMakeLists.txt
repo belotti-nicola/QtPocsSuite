@@ -1,7 +1,7 @@
-target_link_libraries(appQtPocsSuite
-    PRIVATE Qt6::Core
+add_library(colouringmap
+    "colouringmapbackend.cpp" "colouringmapbackend.h"
 )
 
-add_executable(colouringmap
-    "cmbackend.cpp" "cmbackend.h"
+target_link_libraries(colouringmap
+    PRIVATE Qt6::Core
 )

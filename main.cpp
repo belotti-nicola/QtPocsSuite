@@ -3,7 +3,12 @@
 #include <QWindow>
 
 #include <QtQml/qqmlregistration.h>
-#include <QtPocsSuiteLib/ColouringMap/cmbackend.h>
+#include <QQmlContext>
+#include <QQmlApplicationEngine>
+
+
+#include <QtPocsSuiteLib/ColouringMap/colouringmapbackend.h>
+
 
 int main(int argc, char *argv[])
 {
@@ -17,7 +22,11 @@ int main(int argc, char *argv[])
         if (!obj && url == objUrl)
             QCoreApplication::exit(-1);
     }, Qt::QueuedConnection);
-    engine.load(url);
 
+    QQmlContext* rootContext = engine.rootContext();
+    ColouringMapBackend cmbackend;
+    rootContext->setContextProperty("cmbackend",&cmbackend);
+
+    engine.load(url);
     return app.exec();
 }

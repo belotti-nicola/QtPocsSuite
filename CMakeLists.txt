@@ -34,7 +34,8 @@ set_target_properties(appQtPocsSuite PROPERTIES
     WIN32_EXECUTABLE TRUE
 )
 
-target_link_libraries(appQtPocsSuite
+target_link_libraries(appQtPocsSuite PRIVATE
+    colouringmap
     PRIVATE Qt6::Quick
     PRIVATE Qt6::Gui
     PRIVATE Qt6::Core)
