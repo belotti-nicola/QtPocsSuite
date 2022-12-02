@@ -3,8 +3,8 @@ import QtQuick.Controls
 
 import "../components/pocs"
 
-
 Item {
+
     PocsHeader {
         id: pocsheader
         width: box.width + pick_a_color.width
@@ -60,8 +60,18 @@ Item {
                     text: "Green"
                 }
                 Button {
+                    id: gre_btn
+                    checked: false
+                    checkable : true
                     width:20;height:20
+                    background: Rectangle {
+                        color:gre_btn.checked ? "Green" : "white"
+                    }
+                    onClicked: {
+                        cmbackend.color = cmbackend.GREEN
+                    }
                 }
+
             }
             Row {
                 Label {
@@ -69,7 +79,13 @@ Item {
                     text: "Purple"
                 }
                 Button {
+                    id: prp_btn
+                    checked: false
+                    checkable : true
                     width:20;height:20
+                    background: Rectangle {
+                        color:prp_btn.checked ? "Purple" : "white"
+                    }
                 }
             }
             Row {
@@ -78,7 +94,13 @@ Item {
                     text: "Red"
                 }
                 Button {
+                    id: red_btn
+                    checked: false
+                    checkable : true
                     width:20;height:20
+                    background: Rectangle {
+                        color:red_btn.checked ? "Red" : "white"
+                    }
                 }
             }
             Row {
@@ -87,8 +109,15 @@ Item {
                     text: "Blue"
                 }
                 Button {
+                    id: blue_btn
+                    checked: false
+                    checkable : true
                     width:20;height:20
+                    background: Rectangle {
+                        color:blue_btn.checked ? "Blue" : "white"
+                    }
                 }
+
             }
         }
    }
