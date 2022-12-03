@@ -4,11 +4,8 @@
 ColouringMapBackend::ColouringMapBackend(QObject *parent)
     : QObject{parent}
 {
-
+    m_color = GREEN;
 
 }
 
-void ColouringMapBackend::setColor(ColouringMapBackend::Colors c) {
-    qDebug() << c;
-}
 

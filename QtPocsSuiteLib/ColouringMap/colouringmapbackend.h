@@ -6,29 +6,25 @@
 class ColouringMapBackend : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(Colors Color READ Color  WRITE setColor  NOTIFY ColorChanged)
-
+    Q_PROPERTY(Color color MEMBER m_color NOTIFY ColorChanged)
 public:
 
-    enum Colors{
+    enum Color{
         NONE=0,
         GREEN=1,
         RED=2,
         PURPLE=3,
         BLUE=4
     };
-    Q_ENUM(Colors)
+    Q_ENUM(Color)
 
-
-    void setColor(Colors c);
     explicit ColouringMapBackend(QObject *parent = nullptr);
 
 signals:
     void ColorChanged();
 
 private:
-    Colors m_color;
-
+    Color m_color;
 };
 
 #endif // COLOURINGMAPBACKEND_H
