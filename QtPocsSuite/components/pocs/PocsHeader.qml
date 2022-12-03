@@ -6,17 +6,28 @@ Item {
     height: 100
     width: 400
 
+    property string name:"define me with \"name\"!"
+
     Rectangle {
         id: headerbox
         height: root.height
         width: root.width
         color: "grey"
         Button {
-            width: 20
-            height: 20
+            width: 30
+            height: 30
             anchors.right: headerbox.right
-            anchors.top: headerbox.top
+            anchors.rightMargin: 5
+            anchors.verticalCenter: headerbox.verticalCenter
             text: "X"
+        }
+        Label {
+            id: title
+            text: name
+            color: "white"
+            anchors.left: headerbox.left
+            anchors.leftMargin: 5
+            anchors.verticalCenter: headerbox.verticalCenter
         }
     }
 }

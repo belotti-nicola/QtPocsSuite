@@ -26,7 +26,7 @@ Window {
             }
         Row {
                 Button {
-                    text: "VideoStream?"
+                    text: "VideoStream"
                 }
             }
 

@@ -5,10 +5,21 @@ import "../components/pocs"
 
 Item {
 
+    Connections {
+        target: cmbackend
+        function onColorChanged() {
+            console.log("onColorChanged")
+        }
+        function onImgChanged() {
+            console.log("onImgChanged")
+        }
+    }
+
     PocsHeader {
         id: pocsheader
         width: box.width + pick_a_color.width
         height: 50
+        name: "Colour this map!"
     }
 
     Rectangle {
@@ -61,14 +72,14 @@ Item {
                 }
                 Button {
                     id: gre_btn
-                    checked: false
+                    checked: cmbackend.color === 1
                     checkable : true
                     width:20;height:20
                     background: Rectangle {
                         color:gre_btn.checked ? "Green" : "white"
                     }
                     onClicked: {
-                        cmbackend.color = cmbackend.GREEN
+                        cmbackend.color = 1
                     }
                 }
 
@@ -80,11 +91,14 @@ Item {
                 }
                 Button {
                     id: prp_btn
-                    checked: false
+                    checked: cmbackend.color === 2
                     checkable : true
                     width:20;height:20
                     background: Rectangle {
                         color:prp_btn.checked ? "Purple" : "white"
+                    }
+                    onClicked: {
+                        cmbackend.color = 2
                     }
                 }
             }
@@ -95,11 +109,14 @@ Item {
                 }
                 Button {
                     id: red_btn
-                    checked: false
+                    checked: cmbackend.color === 3
                     checkable : true
                     width:20;height:20
                     background: Rectangle {
                         color:red_btn.checked ? "Red" : "white"
+                    }
+                    onClicked: {
+                        cmbackend.color = 3
                     }
                 }
             }
@@ -110,11 +127,14 @@ Item {
                 }
                 Button {
                     id: blue_btn
-                    checked: false
+                    checked: cmbackend.color === 4
                     checkable : true
                     width:20;height:20
                     background: Rectangle {
                         color:blue_btn.checked ? "Blue" : "white"
+                    }
+                    onClicked: {
+                        cmbackend.color = 4
                     }
                 }
 

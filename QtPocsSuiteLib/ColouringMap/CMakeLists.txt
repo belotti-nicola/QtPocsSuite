@@ -4,4 +4,5 @@ add_library(colouringmap
 
 target_link_libraries(colouringmap
     PRIVATE Qt6::Core
+    PRIVATE Qt6::Gui
 )

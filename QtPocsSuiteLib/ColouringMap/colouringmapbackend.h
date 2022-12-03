@@ -2,11 +2,13 @@
 #define COLOURINGMAPBACKEND_H
 
 #include <QObject>
+#include <QImage>
 
 class ColouringMapBackend : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(Color color MEMBER m_color NOTIFY ColorChanged)
+    Q_PROPERTY(QImage img MEMBER m_img NOTIFY ImgChanged)
 public:
 
     enum Color{
@@ -22,9 +24,11 @@ public:
 
 signals:
     void ColorChanged();
+    void ImgChanged();
 
 private:
     Color m_color;
+    QImage m_img;
 };
 
 #endif // COLOURINGMAPBACKEND_H
