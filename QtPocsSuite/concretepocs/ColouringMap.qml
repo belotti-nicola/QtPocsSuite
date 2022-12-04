@@ -31,7 +31,7 @@ Item {
         anchors.left: pocsheader.left
         Image {
             id: img
-            source: combo.model[combo.currentIndex].source
+            source: cmbackend.image
             MouseArea {
                 anchors.fill: parent
                 onClicked : (mouse) => {
@@ -40,6 +40,18 @@ Item {
             }
         }
     }
+    Button {
+        id: deployPoly
+        anchors.top: pocsheader.bottom
+        anchors.left: pocsheader.left
+        onClicked: {
+            cmbackend.paint()
+            console.log("painted")
+            img.update()
+            console.log("updated")
+        }
+    }
+
     Rectangle {
         id: pick_a_color
         anchors.left: box.right

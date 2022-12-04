@@ -10,7 +10,6 @@ class ColouringMapBackend : public QObject
     Q_PROPERTY(Color color MEMBER m_color NOTIFY ColorChanged)
     Q_PROPERTY(QImage img MEMBER m_img NOTIFY ImgChanged)
 public:
-
     enum Color{
         NONE=0,
         GREEN=1,
@@ -21,6 +20,10 @@ public:
     Q_ENUM(Color)
 
     explicit ColouringMapBackend(QObject *parent = nullptr);
+
+public slots:
+    void paint();
+
 
 signals:
     void ColorChanged();
