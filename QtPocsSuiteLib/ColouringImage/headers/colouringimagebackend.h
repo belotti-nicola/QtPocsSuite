@@ -1,10 +1,10 @@
-#ifndef COLOURINGMAPBACKEND_H
-#define COLOURINGMAPBACKEND_H
+#ifndef COLOURINGIMAGEBACKEND_H
+#define COLOURINGIMAGEBACKEND_H
 
 #include <QObject>
 #include <QImage>
 
-class ColouringMapBackend : public QObject
+class ColouringImageBackend : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(Color color MEMBER m_color NOTIFY ColorChanged)
@@ -19,7 +19,7 @@ public:
     };
     Q_ENUM(Color)
 
-    explicit ColouringMapBackend(QObject *parent = nullptr);
+    explicit ColouringImageBackend(QObject *parent = nullptr);
 
 public slots:
     void paint();
@@ -34,4 +34,4 @@ private:
     QImage m_img;
 };
 
-#endif // COLOURINGMAPBACKEND_H
+#endif // COLOURINGIMAGEBACKEND_H

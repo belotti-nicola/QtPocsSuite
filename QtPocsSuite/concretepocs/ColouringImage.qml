@@ -5,16 +5,6 @@ import "../components/pocs"
 
 Item {
 
-    Connections {
-        target: cmbackend
-        function onColorChanged() {
-            console.log("onColorChanged")
-        }
-        function onImgChanged() {
-            console.log("onImgChanged")
-        }
-    }
-
     PocsHeader {
         id: pocsheader
         width: box.width + pick_a_color.width
@@ -31,24 +21,13 @@ Item {
         anchors.left: pocsheader.left
         Image {
             id: img
-            source: "qrc:/QtPocsSuite/utils/worldmap.png"
+            source: "qrc:/QtPocsSuite/utils/maps/concrete_maps/canvas1.png"
             MouseArea {
                 anchors.fill: parent
                 onClicked : (mouse) => {
                     console.log(mouse.x+" "+mouse.y)
                 }
             }
-        }
-    }
-    Button {
-        id: deployPoly
-        anchors.top: pocsheader.bottom
-        anchors.left: pocsheader.left
-        onClicked: {
-            cmbackend.paint()
-            console.log("painted")
-            img.update()
-            console.log("updated")
         }
     }
 
@@ -63,15 +42,29 @@ Item {
 
         Column {
             spacing: 10
-            ComboBox {
-                id: combo
-                textRole: "text"
-                valueRole: "source"
-                model: [
-                    {text: "worldmap" , source: "qrc:/QtPocsSuite/utils/worldmap.png"},
-                    {text: "europemap", source: "qrc:/QtPocsSuite/utils/europemap.jpg"},
-                    {text: "italymap", source: "qrc:/QtPocsSuite/utils/italymap.png"}
-                ]
+            Row {
+                Label{
+                    text: "Available images:"
+                }
+            }
+
+            Row {
+                ComboBox {
+                    id: combo
+                    textRole: "text"
+                    valueRole: "source"
+                    model: [
+                        {text: "canvas1" , source: "qrc:/QtPocsSuite/utils/maps/concrete_maps/canvas1.png"},
+                        {text: "canvas2" , source: "qrc:/QtPocsSuite/utils/maps/concrete_maps/canvas2.png"},
+                        {text: "worldmap" , source: "qrc:/QtPocsSuite/utils/maps/concrete_maps/worldmap.png"},
+                        {text: "europemap", source: "qrc:/QtPocsSuite/utils/maps/concrete_maps/europemap.jpg"},
+                        {text: "italymap", source: "qrc:/QtPocsSuite/utils/maps/concrete_maps/italymap.png"}
+                    ]
+                    onModelChanged: {
+                        console.log("1")
+                        img.source = "qrc:/QtPocsSuite/utils/maps/concrete_maps/canvas2.png"
+                    }
+                    }
             }
             Row {
                 Label {
@@ -152,6 +145,20 @@ Item {
                 }
 
             }
+            Row {
+                Label {
+                    text: "Pick a brush type:"
+                }
+            }
+
+            ComboBox {
+                model: [
+                    "1",
+                    "2",
+                    "3"
+                ]
+            }
+
         }
    }
 }

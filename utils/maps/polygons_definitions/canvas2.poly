@@ -1,0 +1,13 @@
+context.rect(0, 0, 100, 600);
+context.rect(100, 0, 300 ,50);
+context.rect(400, 0, 200, 200);
+context.rect(150, 100, 300, 150);
+context.rect(100, 250, 50, 50);
+context.rect(150, 250, 100, 100);
+context.rect(250, 350, 200, 200);
+
+
+context.moveTo(100,600)
+context.lineTo(600,600)
+context.moveTo(600,600)
+context.lineTo(600,200)

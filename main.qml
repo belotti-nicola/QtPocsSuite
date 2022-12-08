@@ -12,9 +12,9 @@ Window {
         spacing: 10
         Row {
             Button {
-                text: "Colour a map!"
+                text: "Colour this image!"
                 onClicked: {
-                    var comp = Qt.createComponent("QtPocsSuite/concretepocs/ColouringMap.qml")
+                    var comp = Qt.createComponent("QtPocsSuite/concretepocs/ColouringImage.qml")
                     var obj  = comp.createObject(mainwindow,{x:100,y:100})
                 }
             }
@@ -27,6 +27,11 @@ Window {
         Row {
                 Button {
                     text: "VideoStream"
+                }
+            }
+        Row {
+                Button {
+                    text: "DataEngine"
                 }
             }
 

@@ -17,15 +17,17 @@ qt_add_qml_module(appQtPocsSuite
     QML_FILES
         "main.qml"
         "QtPocsSuite/components/pocs/PocsHeader.qml"
-        "QtPocsSuite/concretepocs/ColouringMap.qml"
+        "QtPocsSuite/concretepocs/ColouringImage.qml"
     RESOURCES
-        "utils/maps/worldmap.png"
-        "utils/maps/europemap.jpg"
-        "utils/maps/italymap.png"
+        "utils/maps/concrete_maps/canvas1.png"
+        "utils/maps/concrete_maps/canvas2.png"
+        "utils/maps/concrete_maps/worldmap.png"
+        "utils/maps/concrete_maps/europemap.jpg"
+        "utils/maps/concrete_maps/italymap.png"
         "utils/icon.ico"
 )
 
-add_subdirectory(QtPocsSuiteLib/ColouringMap)
+add_subdirectory(QtPocsSuiteLib/ColouringImage)
 
 set_target_properties(appQtPocsSuite PROPERTIES
     MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com
@@ -36,7 +38,7 @@ set_target_properties(appQtPocsSuite PROPERTIES
 )
 
 target_link_libraries(appQtPocsSuite PRIVATE
-    colouringmap
+    colouringimage
     PRIVATE Qt6::Quick
     PRIVATE Qt6::Gui
     PRIVATE Qt6::Core)

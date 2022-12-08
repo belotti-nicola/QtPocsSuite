@@ -7,7 +7,7 @@
 #include <QQmlApplicationEngine>
 
 
-#include <QtPocsSuiteLib/ColouringMap/headers/colouringmapbackend.h>
+#include <QtPocsSuiteLib/ColouringImage/headers/colouringimagebackend.h>
 
 
 int main(int argc, char *argv[])
@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
     }, Qt::QueuedConnection);
 
     QQmlContext* rootContext = engine.rootContext();
-    ColouringMapBackend cmbackend;
+    ColouringImageBackend cmbackend;
     rootContext->setContextProperty("cmbackend",&cmbackend);
 
     engine.load(url);

@@ -1,18 +1,18 @@
-#include "colouringmapbackend.h"
+#include "colouringimagebackend.h"
 #include <QDebug>
 #include <QPainterPath>
 #include <QPainter>
 #include <QBrush>
 
-ColouringMapBackend::ColouringMapBackend(QObject *parent)
+ColouringImageBackend::ColouringImageBackend(QObject *parent)
     : QObject{parent}
 {
     m_color = NONE;
-    m_img = QImage(":/QtPocsSuite/utils/worldmap.png");
+    m_img = QImage(":/QtPocsSuite/utils/maps/concrete_maps/worldmap.png");
     qDebug() << m_img;
 }
 
-void ColouringMapBackend::paint(){
+void ColouringImageBackend::paint(){
 
     QPolygon poly;
     QPainterPath path;
