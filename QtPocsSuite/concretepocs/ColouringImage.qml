@@ -47,24 +47,22 @@ Item {
                     text: "Available images:"
                 }
             }
-
             Row {
                 ComboBox {
                     id: combo
                     textRole: "text"
                     valueRole: "source"
                     model: [
-                        {text: "canvas1" , source: "qrc:/QtPocsSuite/utils/maps/concrete_maps/canvas1.png"},
-                        {text: "canvas2" , source: "qrc:/QtPocsSuite/utils/maps/concrete_maps/canvas2.png"},
+                        {text: "canvas1" ,  source: "qrc:/QtPocsSuite/utils/maps/concrete_maps/canvas1.png"},
+                        {text: "canvas2" ,  source: "qrc:/QtPocsSuite/utils/maps/concrete_maps/canvas2.png"},
                         {text: "worldmap" , source: "qrc:/QtPocsSuite/utils/maps/concrete_maps/worldmap.png"},
                         {text: "europemap", source: "qrc:/QtPocsSuite/utils/maps/concrete_maps/europemap.jpg"},
-                        {text: "italymap", source: "qrc:/QtPocsSuite/utils/maps/concrete_maps/italymap.png"}
+                        {text: "italymap",  source: "qrc:/QtPocsSuite/utils/maps/concrete_maps/italymap.png"}
                     ]
                     onModelChanged: {
-                        console.log("1")
                         img.source = "qrc:/QtPocsSuite/utils/maps/concrete_maps/canvas2.png"
                     }
-                    }
+                }
             }
             Row {
                 Label {
@@ -72,94 +70,54 @@ Item {
                 }
             }
             Row {
-                Label {
-                    color: text
-                    text: "Green"
+                ComboBox {
+                    model: [
+                        "Red",
+                        "Green",
+                        "Blue"
+                    ]
                 }
-                Button {
-                    id: gre_btn
-                    checked: cmbackend.color === 1
-                    checkable : true
-                    width:20;height:20
-                    background: Rectangle {
-                        color:gre_btn.checked ? "Green" : "white"
-                    }
-                    onClicked: {
-                        cmbackend.color = 1
-                    }
-                }
-
-            }
-            Row {
-                Label {
-                    color: text
-                    text: "Purple"
-                }
-                Button {
-                    id: prp_btn
-                    checked: cmbackend.color === 2
-                    checkable : true
-                    width:20;height:20
-                    background: Rectangle {
-                        color:prp_btn.checked ? "Purple" : "white"
-                    }
-                    onClicked: {
-                        cmbackend.color = 2
-                    }
-                }
-            }
-            Row {
-                Label {
-                    color: text
-                    text: "Red"
-                }
-                Button {
-                    id: red_btn
-                    checked: cmbackend.color === 3
-                    checkable : true
-                    width:20;height:20
-                    background: Rectangle {
-                        color:red_btn.checked ? "Red" : "white"
-                    }
-                    onClicked: {
-                        cmbackend.color = 3
-                    }
-                }
-            }
-            Row {
-                Label {
-                    color: text
-                    text: "Blue"
-                }
-                Button {
-                    id: blue_btn
-                    checked: cmbackend.color === 4
-                    checkable : true
-                    width:20;height:20
-                    background: Rectangle {
-                        color:blue_btn.checked ? "Blue" : "white"
-                    }
-                    onClicked: {
-                        cmbackend.color = 4
-                    }
-                }
-
             }
             Row {
                 Label {
                     text: "Pick a brush type:"
                 }
             }
-
-            ComboBox {
-                model: [
-                    "1",
-                    "2",
-                    "3"
-                ]
+            Row {
+                ComboBox {
+                    model: [
+                        "Solid",
+                        "Dense1",
+                        "Dense2",
+                        "Dense3",
+                        "Dense4",
+                        "Dense5",
+                        "Dense6",
+                        "Dense7",
+                        "NoBrush",
+                        "Horintal",
+                        "Vertical",
+                        "Cross",
+                        "BDiag",
+                        "FDiag",
+                        "DiagCross",
+                        "LinearGradient",
+                        "RadialGradient",
+                        "ConicalGradient"
+                    ]
+                }
             }
 
         }
-   }
+    }
+
+
+    Button {
+        anchors.horizontalCenter: pick_a_color.horizontalCenter
+        anchors.bottom: pick_a_color.bottom
+        anchors.bottomMargin: 5
+        text: "Reset"
+
+    }
 }
 

@@ -31,7 +31,7 @@ Window {
             }
         Row {
                 Button {
-                    text: "DataEngine"
+                    text: "C++ Engine"
                 }
             }
 

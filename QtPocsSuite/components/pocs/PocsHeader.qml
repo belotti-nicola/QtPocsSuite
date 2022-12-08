@@ -12,6 +12,7 @@ Item {
         id: headerbox
         height: root.height
         width: root.width
+        border.width: 3
         color: "grey"
         Button {
             width: 30
@@ -20,13 +21,19 @@ Item {
             anchors.rightMargin: 5
             anchors.verticalCenter: headerbox.verticalCenter
             text: "X"
+            background:
+                Rectangle {
+                    radius: 5
+                    color: "white"
+                }
+
         }
         Label {
             id: title
             text: name
             color: "white"
             anchors.left: headerbox.left
-            anchors.leftMargin: 5
+            anchors.leftMargin: 10
             anchors.verticalCenter: headerbox.verticalCenter
         }
     }
