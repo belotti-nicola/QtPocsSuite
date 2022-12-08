@@ -31,7 +31,7 @@ Item {
         anchors.left: pocsheader.left
         Image {
             id: img
-            source: cmbackend.image
+            source: "qrc:/QtPocsSuite/utils/worldmap.png"
             MouseArea {
                 anchors.fill: parent
                 onClicked : (mouse) => {
@@ -69,7 +69,8 @@ Item {
                 valueRole: "source"
                 model: [
                     {text: "worldmap" , source: "qrc:/QtPocsSuite/utils/worldmap.png"},
-                    {text: "europemap", source: "qrc:/QtPocsSuite/utils/europemap.jpg"}
+                    {text: "europemap", source: "qrc:/QtPocsSuite/utils/europemap.jpg"},
+                    {text: "italymap", source: "qrc:/QtPocsSuite/utils/italymap.png"}
                 ]
             }
             Row {

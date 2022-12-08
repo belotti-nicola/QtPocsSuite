@@ -7,7 +7,7 @@
 #include <QQmlApplicationEngine>
 
 
-#include <QtPocsSuiteLib/ColouringMap/colouringmapbackend.h>
+#include <QtPocsSuiteLib/ColouringMap/headers/colouringmapbackend.h>
 
 
 int main(int argc, char *argv[])

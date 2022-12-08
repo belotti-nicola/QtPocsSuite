@@ -19,8 +19,9 @@ qt_add_qml_module(appQtPocsSuite
         "QtPocsSuite/components/pocs/PocsHeader.qml"
         "QtPocsSuite/concretepocs/ColouringMap.qml"
     RESOURCES
-        "utils/worldmap.png"
-        "utils/europemap.jpg"
+        "utils/maps/worldmap.png"
+        "utils/maps/europemap.jpg"
+        "utils/maps/italymap.png"
         "utils/icon.ico"
 )
 

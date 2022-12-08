@@ -1,5 +1,11 @@
+include_directories(colouringmap PRIVATE
+    "headers"
+    "sources"
+)
+
 add_library(colouringmap
-    "colouringmapbackend.cpp" "colouringmapbackend.h"
+    "sources/colouringmapbackend.cpp"
+    "headers/colouringmapbackend.h"
 )
 
 target_link_libraries(colouringmap
