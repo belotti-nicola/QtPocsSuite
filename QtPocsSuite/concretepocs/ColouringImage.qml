@@ -107,7 +107,28 @@ Item {
                     ]
                 }
             }
+            Row {
+                Label {
+                    text: "Preview:"
+                }
+            }
+            Row {
+                Label {
+                    text:"border width:"
+                }
+            }
+            Row {
+                SpinBox {
+                    from:1
+                    to: 10
+                }
+            }
 
+            Row {
+                Image {
+                    source: "image://ColouringImage/paintingpreview.png"
+                }
+            }
         }
     }
 

@@ -4,12 +4,18 @@
 #include <QPainter>
 #include <QBrush>
 
+#include <paintingpreview_provider.h>
+
 ColouringImageBackend::ColouringImageBackend(QObject *parent)
     : QObject{parent}
 {
-    m_color = NONE;
-    m_img = QImage(":/QtPocsSuite/utils/maps/concrete_maps/worldmap.png");
-    qDebug() << m_img;
+    //default values
+    m_color = RED;
+    m_image = QImage(":/QtPocsSuite/utils/maps/concrete_maps/canvas1.png");
+    m_brush = SOLID;
+    m_borderWidth = 1;
+
+    this->preview_generator(RED,SOLID,1);
 }
 
 void ColouringImageBackend::paint(){
@@ -23,6 +29,10 @@ void ColouringImageBackend::paint(){
              << QPoint(223, 97);
     path.addPolygon(poly);
 
-    QPainter painter(&m_img);
+    QPainter painter(&m_image);
     painter.fillPath(path,QBrush(Qt::green));
+}
+
+void ColouringImageBackend::preview_generator(Color c,Brush b,int borderWidth){
+
 }

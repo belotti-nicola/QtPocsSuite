@@ -1,6 +1,7 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QWindow>
+#include <QQuickView>
 
 #include <QtQml/qqmlregistration.h>
 #include <QQmlContext>
@@ -8,11 +9,12 @@
 
 
 #include <QtPocsSuiteLib/ColouringImage/headers/colouringimagebackend.h>
-
+#include <QtPocsSuiteLib/ColouringImage/headers/paintingpreview_provider.h>
 
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
+    QQuickView view;
     app.setWindowIcon(QIcon("QtPocsSuite/utils/icon.ico"));
 
     QQmlApplicationEngine engine;
@@ -26,6 +28,12 @@ int main(int argc, char *argv[])
     QQmlContext* rootContext = engine.rootContext();
     ColouringImageBackend cmbackend;
     rootContext->setContextProperty("cmbackend",&cmbackend);
+
+    engine.addImageProvider("ColouringImage", new PaintingPreview_Provider);
+    view.setSource(QUrl("QtPocsSuite/concretepocs/ColouringImage.qml"));
+    view.show();
+
+
 
     engine.load(url);
     return app.exec();
