@@ -53,14 +53,14 @@ Item {
                     textRole: "text"
                     valueRole: "source"
                     model: [
-                        {text: "canvas1" ,  source: "qrc:/QtPocsSuite/utils/maps/concrete_maps/canvas1.png"},
-                        {text: "canvas2" ,  source: "qrc:/QtPocsSuite/utils/maps/concrete_maps/canvas2.png"},
-                        {text: "worldmap" , source: "qrc:/QtPocsSuite/utils/maps/concrete_maps/worldmap.png"},
-                        {text: "europemap", source: "qrc:/QtPocsSuite/utils/maps/concrete_maps/europemap.jpg"},
-                        {text: "italymap",  source: "qrc:/QtPocsSuite/utils/maps/concrete_maps/italymap.png"}
+                        {"source":"qrc:/QtPocsSuite/utils/maps/concrete_maps/canvas1.png", "text":"canvas1"},
+                        {"source":"qrc:/QtPocsSuite/utils/maps/concrete_maps/canvas2.png", "text":"canvas2"},
+                        {"source":"qrc:/QtPocsSuite/utils/maps/concrete_maps/worldmap.png", "text":"worldmap"},
+                        {"source":"qrc:/QtPocsSuite/utils/maps/concrete_maps/europemap.jpg", "text":"europemap"},
+                        {"source":"qrc:/QtPocsSuite/utils/maps/concrete_maps/italymap.png", "text":"italymap"}
                     ]
-                    onModelChanged: {
-                        img.source = "qrc:/QtPocsSuite/utils/maps/concrete_maps/canvas2.png"
+                    onCurrentIndexChanged: {
+                        img.source = model[currentIndex].source
                     }
                 }
             }
@@ -74,7 +74,10 @@ Item {
                     model: [
                         "Red",
                         "Green",
-                        "Blue"
+                        "Blue",
+                        "Yellow",
+                        "Grey",
+                        "Orange"
                     ]
                 }
             }
@@ -109,11 +112,6 @@ Item {
             }
             Row {
                 Label {
-                    text: "Preview:"
-                }
-            }
-            Row {
-                Label {
                     text:"border width:"
                 }
             }
@@ -123,10 +121,14 @@ Item {
                     to: 10
                 }
             }
-
+            Row {
+                Label {
+                    text: "Preview:"
+                }
+            }
             Row {
                 Image {
-                    source: "image://ColouringImage/paintingpreview.png"
+                    source: "image://ColouringImageProvider/paintingpreview"
                 }
             }
         }

@@ -29,11 +29,8 @@ int main(int argc, char *argv[])
     ColouringImageBackend cmbackend;
     rootContext->setContextProperty("cmbackend",&cmbackend);
 
-    engine.addImageProvider("ColouringImage", new PaintingPreview_Provider);
-    view.setSource(QUrl("QtPocsSuite/concretepocs/ColouringImage.qml"));
-    view.show();
-
-
+    engine.addImageProvider("ColouringImageProvider", new PaintingPreview_Provider);
+    view.setSource(QUrl("QtPocsSuite/concretepocs/pocs/ColouringImage.qml"));
 
     engine.load(url);
     return app.exec();
