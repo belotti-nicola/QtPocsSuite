@@ -5,6 +5,9 @@ import "../components/pocs"
 
 Item {
 
+    signal updateImage(msg: string)
+    signal updatePaintingSettings(color: string,brush: string,borderWidth: int)
+
     PocsHeader {
         id: pocsheader
         width: box.width + pick_a_color.width
@@ -53,11 +56,11 @@ Item {
                     textRole: "text"
                     valueRole: "source"
                     model: [
-                        {"source":"qrc:/QtPocsSuite/utils/maps/concrete_maps/canvas1.png", "text":"canvas1"},
-                        {"source":"qrc:/QtPocsSuite/utils/maps/concrete_maps/canvas2.png", "text":"canvas2"},
-                        {"source":"qrc:/QtPocsSuite/utils/maps/concrete_maps/worldmap.png", "text":"worldmap"},
-                        {"source":"qrc:/QtPocsSuite/utils/maps/concrete_maps/europemap.jpg", "text":"europemap"},
-                        {"source":"qrc:/QtPocsSuite/utils/maps/concrete_maps/italymap.png", "text":"italymap"}
+                        {"source":"qrc:/QtPocsSuite/utils/maps/concrete_maps/canvas1.png",      "text":"canvas1"},
+                        {"source":"qrc:/QtPocsSuite/utils/maps/concrete_maps/canvas2.png",      "text":"canvas2"},
+                        {"source":"qrc:/QtPocsSuite/utils/maps/concrete_maps/worldmap.png",     "text":"worldmap"},
+                        {"source":"qrc:/QtPocsSuite/utils/maps/concrete_maps/europemap.jpg",    "text":"europemap"},
+                        {"source":"qrc:/QtPocsSuite/utils/maps/concrete_maps/italymap.png",     "text":"italymap"}
                     ]
                     onCurrentIndexChanged: {
                         img.source = model[currentIndex].source

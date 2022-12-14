@@ -30,7 +30,6 @@ int main(int argc, char *argv[])
     rootContext->setContextProperty("cmbackend",&cmbackend);
 
     engine.addImageProvider("ColouringImageProvider", new PaintingPreview_Provider);
-    view.setSource(QUrl("QtPocsSuite/concretepocs/pocs/ColouringImage.qml"));
 
     engine.load(url);
     return app.exec();
