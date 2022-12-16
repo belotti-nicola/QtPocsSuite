@@ -1,12 +1,10 @@
 import QtQuick 2.5
 import QtQuick.Controls
+import QtQuick.Layouts
 
 import "../components/pocs"
 
 Item {
-
-    signal updateImage(msg: string)
-    signal updatePaintingSettings(color: string,brush: string,borderWidth: int)
 
     PocsHeader {
         id: pocsheader
@@ -67,76 +65,67 @@ Item {
                     }
                 }
             }
-            Row {
+
+            ColumnLayout {
                 Label {
                     text: "Pick a color:"
                 }
-            }
-            Row {
                 ComboBox {
-                    model: [
-                        "Red",
-                        "Green",
-                        "Blue",
-                        "Yellow",
-                        "Grey",
-                        "Orange"
-                    ]
+                        model: [
+                            "Red",
+                            "Green",
+                            "Blue",
+                            "Yellow",
+                            "Grey",
+                            "Orange"
+                        ]
+                        onCurrentIndexChanged: {
+                            cmbackend.brush = 1;
+                        }
                 }
-            }
-            Row {
                 Label {
-                    text: "Pick a brush type:"
+                        text: "Pick a brush type:"
                 }
-            }
-            Row {
                 ComboBox {
-                    model: [
-                        "Solid",
-                        "Dense1",
-                        "Dense2",
-                        "Dense3",
-                        "Dense4",
-                        "Dense5",
-                        "Dense6",
-                        "Dense7",
-                        "NoBrush",
-                        "Horintal",
-                        "Vertical",
-                        "Cross",
-                        "BDiag",
-                        "FDiag",
-                        "DiagCross",
-                        "LinearGradient",
-                        "RadialGradient",
-                        "ConicalGradient"
-                    ]
+                        model: [
+                            "Solid",
+                            "Dense1",
+                            "Dense2",
+                            "Dense3",
+                            "Dense4",
+                            "Dense5",
+                            "Dense6",
+                            "Dense7",
+                            "NoBrush",
+                            "Horintal",
+                            "Vertical",
+                            "Cross",
+                            "BDiag",
+                            "FDiag",
+                            "DiagCross",
+                            "LinearGradient",
+                            "RadialGradient",
+                            "ConicalGradient"
+                        ]
                 }
-            }
-            Row {
                 Label {
-                    text:"border width:"
+                        text:"border width:"
                 }
-            }
-            Row {
                 SpinBox {
-                    from:1
-                    to: 10
+                        from:1
+                        to: 10
+                        onValueChanged: cmbackend.borderWidth=value
                 }
-            }
-            Row {
                 Label {
-                    text: "Preview:"
+                        text: "Preview:"
                 }
-            }
-            Row {
                 Image {
-                    source: "image://ColouringImageProvider/paintingpreview"
+                        source: "image://ColouringImageProvider/paintingpreview"
+
                 }
             }
         }
     }
-
 
     Button {
         anchors.horizontalCenter: pick_a_color.horizontalCenter
@@ -145,5 +134,13 @@ Item {
         text: "Reset"
 
     }
+
+    function updateImage(){
+        cmbackend.paint()
+    }
+    function updateImagePreview(){
+        cmbackend.paint()
+    }
+
 }
 

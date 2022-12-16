@@ -5,17 +5,18 @@
 #include <QBrush>
 
 #include <paintingpreview_provider.h>
+#include "ColouringSupportedDefinitions.h"
 
 ColouringImageBackend::ColouringImageBackend(QObject *parent)
     : QObject{parent}
 {
     //default values
-    m_color = RED;
+    m_color = ColouringSupportedDefinitions::RED;
     m_image = QImage(":/QtPocsSuite/utils/maps/concrete_maps/canvas1.png");
-    m_brush = SOLID;
+    m_brush = ColouringSupportedDefinitions::SOLID;
     m_borderWidth = 1;
 
-    this->preview_generator(RED,SOLID,1);
+    this->preview_generator(ColouringSupportedDefinitions::RED,ColouringSupportedDefinitions::SOLID,1);
 }
 
 void ColouringImageBackend::paint(){
@@ -33,6 +34,6 @@ void ColouringImageBackend::paint(){
     painter.fillPath(path,QBrush(Qt::green));
 }
 
-void ColouringImageBackend::preview_generator(Color c,Brush b,int borderWidth){
+void ColouringImageBackend::preview_generator(ColouringSupportedDefinitions::Color c,ColouringSupportedDefinitions::Brush b,int borderWidth){
 
 }
