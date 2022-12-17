@@ -7,6 +7,7 @@
 
 #include "ColouringSupportedDefinitions.h"
 
+
 class ColouringImageBackend : public QObject
 {
     Q_OBJECT
@@ -16,6 +17,7 @@ class ColouringImageBackend : public QObject
     Q_PROPERTY(int borderWidth MEMBER m_borderWidth NOTIFY BorderWidthChanged)
 
 public:
+
     explicit ColouringImageBackend(QObject *parent = nullptr);
 
 public slots:

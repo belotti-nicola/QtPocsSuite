@@ -1,6 +1,7 @@
 #ifndef COLOURINGSUPPORTEDDEFINITIONS_H
 #define COLOURINGSUPPORTEDDEFINITIONS_H
 
+
 class ColouringSupportedDefinitions
 {
     public:

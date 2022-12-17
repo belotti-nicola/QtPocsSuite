@@ -107,6 +107,9 @@ Item {
                             "RadialGradient",
                             "ConicalGradient"
                         ]
+                        onCurrentIndexChanged: {
+                            cmbackend.brush = currentIndex
+                        }
                 }
                 Label {
                         text:"border width:"
@@ -114,7 +117,10 @@ Item {
                 SpinBox {
                         from:1
                         to: 10
-                        onValueChanged: cmbackend.borderWidth=value
+                        value: cmbackend.borderWidth
+                        onValueChanged: {
+                            cmbackend.borderWidth=value
+                        }
                 }
                 Label {
                         text: "Preview:"

@@ -14,7 +14,7 @@ ColouringImageBackend::ColouringImageBackend(QObject *parent)
     m_color = ColouringSupportedDefinitions::RED;
     m_image = QImage(":/QtPocsSuite/utils/maps/concrete_maps/canvas1.png");
     m_brush = ColouringSupportedDefinitions::SOLID;
-    m_borderWidth = 1;
+    m_borderWidth = 2;
 
     this->preview_generator(ColouringSupportedDefinitions::RED,ColouringSupportedDefinitions::SOLID,1);
 }

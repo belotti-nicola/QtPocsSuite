@@ -5,6 +5,7 @@ include_directories(colouringimage PRIVATE
 
 add_library(colouringimage
     "headers/ColouringSupportedDefinitions.h"
+    "sources/models/brushesModel.cpp" "headers/models/brushesModel.h"
     "sources/colouringimagebackend.cpp"    "headers/colouringimagebackend.h"
     "sources/paintingpreview_provider.cpp" "headers/paintingpreview_provider.h"
 )
