@@ -1,1 +1,22 @@
 - uncheckable buttons in ColouringMap.qml
+
+[
+    "Solid",
+    "Dense1",
+    "Dense2",
+    "Dense3",
+    "Dense4",
+    "Dense5",
+    "Dense6",
+    "Dense7",
+    "NoBrush",
+    "Horintal",
+    "Vertical",
+    "Cross",
+    "BDiag",
+    "FDiag",
+    "DiagCross",
+    "LinearGradient",
+    "RadialGradient",
+    "ConicalGradient"
+]

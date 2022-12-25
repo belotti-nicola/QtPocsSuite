@@ -3,6 +3,7 @@ import QtQuick.Controls
 import QtQuick.Layouts
 
 import "../components/pocs"
+import BrushesModel 1.0
 
 Item {
 
@@ -41,36 +42,30 @@ Item {
         width: 250
         border.width: 1
 
-        Column {
-            spacing: 10
-            Row {
-                Label{
-                    text: "Available images:"
-                }
+        ColumnLayout {
+            spacing: 2
+            Label{
+                text: "Available images:"
             }
-            Row {
-                ComboBox {
-                    id: combo
-                    textRole: "text"
-                    valueRole: "source"
-                    model: [
-                        {"source":"qrc:/QtPocsSuite/utils/maps/concrete_maps/canvas1.png",      "text":"canvas1"},
-                        {"source":"qrc:/QtPocsSuite/utils/maps/concrete_maps/canvas2.png",      "text":"canvas2"},
-                        {"source":"qrc:/QtPocsSuite/utils/maps/concrete_maps/worldmap.png",     "text":"worldmap"},
-                        {"source":"qrc:/QtPocsSuite/utils/maps/concrete_maps/europemap.jpg",    "text":"europemap"},
-                        {"source":"qrc:/QtPocsSuite/utils/maps/concrete_maps/italymap.png",     "text":"italymap"}
+            ComboBox {
+                id: combo
+                textRole: "text"
+                valueRole: "source"
+                model: [
+                    {"source":"qrc:/QtPocsSuite/utils/maps/concrete_maps/canvas1.png",      "text":"canvas1"},
+                    {"source":"qrc:/QtPocsSuite/utils/maps/concrete_maps/canvas2.png",      "text":"canvas2"},
+                    {"source":"qrc:/QtPocsSuite/utils/maps/concrete_maps/worldmap.png",     "text":"worldmap"},
+                    {"source":"qrc:/QtPocsSuite/utils/maps/concrete_maps/europemap.jpg",    "text":"europemap"},
+                    {"source":"qrc:/QtPocsSuite/utils/maps/concrete_maps/italymap.png",     "text":"italymap"}
                     ]
-                    onCurrentIndexChanged: {
-                        img.source = model[currentIndex].source
-                    }
+                onCurrentIndexChanged: {
+
                 }
             }
-
-            ColumnLayout {
-                Label {
+            Label {
                     text: "Pick a color:"
-                }
-                ComboBox {
+            }
+            ComboBox {
                         model: [
                             "Red",
                             "Green",
@@ -80,55 +75,39 @@ Item {
                             "Orange"
                         ]
                         onCurrentIndexChanged: {
-                            cmbackend.brush = 1;
+                            cmbackend.brush = currentIndex;
                         }
+            }
+            Label {
+                text: "Pick a brush type:"
+            }
+            ComboBox {
+                id: cb
+                model: BrushesModel{}
+                textRole : "brushname"
+                delegate:
+                    Text {
+                        text:  model.brushname
+                        color: model.concretebrush
                 }
-                Label {
-                        text: "Pick a brush type:"
-                }
-                ComboBox {
-                        model: [
-                            "Solid",
-                            "Dense1",
-                            "Dense2",
-                            "Dense3",
-                            "Dense4",
-                            "Dense5",
-                            "Dense6",
-                            "Dense7",
-                            "NoBrush",
-                            "Horintal",
-                            "Vertical",
-                            "Cross",
-                            "BDiag",
-                            "FDiag",
-                            "DiagCross",
-                            "LinearGradient",
-                            "RadialGradient",
-                            "ConicalGradient"
-                        ]
-                        onCurrentIndexChanged: {
-                            cmbackend.brush = currentIndex
-                        }
-                }
-                Label {
-                        text:"border width:"
-                }
-                SpinBox {
-                        from:1
-                        to: 10
-                        value: cmbackend.borderWidth
-                        onValueChanged: {
-                            cmbackend.borderWidth=value
-                        }
-                }
-                Label {
-                        text: "Preview:"
-                }
-                Image {
-                        source: "image://ColouringImageProvider/paintingpreview"
+            }
 
+            Label {
+                text:"border width:"
+            }
+            SpinBox {
+                from:1
+                to: 10
+                value: cmbackend.borderWidth
+                onValueChanged: {
+                    cmbackend.borderWidth=value
                 }
+            }
+            Label {
+                text: "Preview:"
+            }
+            Image {
+                source: "image://ColouringImageProvider/paintingpreview"
             }
         }
     }
@@ -138,14 +117,6 @@ Item {
         anchors.bottom: pick_a_color.bottom
         anchors.bottomMargin: 5
         text: "Reset"
-
-    }
-
-    function updateImage(){
-        cmbackend.paint()
-    }
-    function updateImagePreview(){
-        cmbackend.paint()
     }
 
 }

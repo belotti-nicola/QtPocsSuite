@@ -8,32 +8,28 @@ Window {
     visible: true
     visibility: Qt.WindowFullScreen
 
-    Column {
+    ColumnLayout {
         spacing: 10
-        Row {
-            Button {
-                text: "Colour this image!"
-                onClicked: {
-                    var comp = Qt.createComponent("QtPocsSuite/concretepocs/ColouringImage.qml")
-                    var obj  = comp.createObject(mainwindow,{x:100,y:100})
-                }
-            }
-        }
-        Row {
-                Button {
-                    text: "TCP status"
-                }
-            }
-        Row {
-                Button {
-                    text: "VideoStream"
-                }
-            }
-        Row {
-                Button {
-                    text: "C++ Engine"
-                }
+
+        Button {
+            text: "Colour this image!"
+            onClicked: {
+                var comp = Qt.createComponent("QtPocsSuite/concretepocs/ColouringImage.qml")
+                var obj  = comp.createObject(mainwindow,{x:100,y:100})
             }
 
+        }
+        Button {
+                    text: "TCP status"
+        }
+        Button {
+                    text: "VideoStream"
+        }
+        Button {
+                    text: "C++ Engine"
+        }
+        Button {
+            text: "Track the mouse on the image!"
+        }
     }
 }

@@ -35,5 +35,10 @@ void ColouringImageBackend::paint(){
 }
 
 void ColouringImageBackend::preview_generator(ColouringSupportedDefinitions::Color c,ColouringSupportedDefinitions::Brush b,int borderWidth){
+//this method is called every times a property changes.
+//connection is in the main.cpp file.
 
+    qDebug() << __PRETTY_FUNCTION__ << "called";
 }
+
+

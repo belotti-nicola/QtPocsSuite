@@ -10,6 +10,7 @@
 
 #include <QtPocsSuiteLib/ColouringImage/headers/colouringimagebackend.h>
 #include <QtPocsSuiteLib/ColouringImage/headers/paintingpreview_provider.h>
+#include <QtPocsSuiteLib/ColouringImage/headers/models/brushesModel.h>
 
 int main(int argc, char *argv[])
 {
@@ -26,10 +27,14 @@ int main(int argc, char *argv[])
     }, Qt::QueuedConnection);
 
     QQmlContext* rootContext = engine.rootContext();
+
+
+    //setup colouring image poc
+    qmlRegisterType<BrushesModel>("BrushesModel",1,0,"BrushesModel");
     ColouringImageBackend cmbackend;
     rootContext->setContextProperty("cmbackend",&cmbackend);
-
     engine.addImageProvider("ColouringImageProvider", new PaintingPreview_Provider);
+    BrushesModel bm{};
 
     engine.load(url);
     return app.exec();
