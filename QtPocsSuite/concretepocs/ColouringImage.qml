@@ -9,7 +9,7 @@ Item {
 
     PocsHeader {
         id: pocsheader
-        width: box.width + pick_a_color.width
+        width: box.width + painting_setting_column.width
         height: 50
         name: "Colour this map!"
     }
@@ -34,7 +34,7 @@ Item {
     }
 
     Rectangle {
-        id: pick_a_color
+        id: painting_setting_column
         anchors.left: box.right
         anchors.top : pocsheader.bottom
         color: "burlywood"
@@ -58,9 +58,6 @@ Item {
                     {"source":"qrc:/QtPocsSuite/utils/maps/concrete_maps/europemap.jpg",    "text":"europemap"},
                     {"source":"qrc:/QtPocsSuite/utils/maps/concrete_maps/italymap.png",     "text":"italymap"}
                     ]
-                onCurrentIndexChanged: {
-
-                }
             }
             Label {
                     text: "Pick a color:"
@@ -82,16 +79,15 @@ Item {
                 text: "Pick a brush type:"
             }
             ComboBox {
-                id: cb
                 model: BrushesModel{}
-                textRole : "brushname"
+                textRole: "brushname"
                 delegate:
-                    Text {
-                        text:  model.brushname
-                        color: model.concretebrush
-                }
+                    ItemDelegate{
+                        text: model.brushname
+                        width: parent.width
+                        onClicked: console.log("clicked:", model.brushname)
+                    }
             }
-
             Label {
                 text:"border width:"
             }
@@ -113,8 +109,8 @@ Item {
     }
 
     Button {
-        anchors.horizontalCenter: pick_a_color.horizontalCenter
-        anchors.bottom: pick_a_color.bottom
+        anchors.horizontalCenter: painting_setting_column.horizontalCenter
+        anchors.bottom: painting_setting_column.bottom
         anchors.bottomMargin: 5
         text: "Reset"
     }

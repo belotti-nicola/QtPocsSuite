@@ -38,7 +38,7 @@ void ColouringImageBackend::preview_generator(ColouringSupportedDefinitions::Col
 //this method is called every times a property changes.
 //connection is in the main.cpp file.
 
-    qDebug() << __PRETTY_FUNCTION__ << "called";
+
 }
 
 

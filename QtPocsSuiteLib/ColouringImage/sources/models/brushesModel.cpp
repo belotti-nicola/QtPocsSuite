@@ -28,12 +28,12 @@ QVariant BrushesModel::data(const QModelIndex &index, int role) const{
         return QVariant();
     }
     const QColor& color = m_data.at(row);
-    qDebug() << row << role << color;
+
     switch(role) {
     case BrushName:
         return color.name();
     case ConcreteBrush:
-        return color.name();
+        return "a";
     }
     return QVariant();
 }
@@ -41,3 +41,4 @@ QVariant BrushesModel::data(const QModelIndex &index, int role) const{
 QHash<int, QByteArray> BrushesModel::roleNames() const{
     return m_brushNames;
 }
+
