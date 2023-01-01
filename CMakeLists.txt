@@ -18,6 +18,8 @@ qt_add_qml_module(appQtPocsSuite
         "main.qml"
         "QtPocsSuite/components/pocs/PocsHeader.qml"
         "QtPocsSuite/concretepocs/ColouringImage.qml"
+        "QtPocsSuite/concretepocs/VideoStream/ChooseConcreteVideoStream.qml"
+        "QtPocsSuite/concretepocs/VideoStream/HTTP.qml"
     RESOURCES
         "utils/maps/concrete_maps/canvas1.png"
         "utils/maps/concrete_maps/canvas2.png"

@@ -24,6 +24,10 @@ Window {
         }
         Button {
                     text: "VideoStream"
+                    onClicked: {
+                        var comp = Qt.createComponent("QtPocsSuite/concretepocs/VideoStream/HTTP.qml")
+                        var obj  = comp.createObject(mainwindow,{x:100,y:100})
+                    }
         }
         Button {
                     text: "C++ Engine"
